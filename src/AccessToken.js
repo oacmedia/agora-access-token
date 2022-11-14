@@ -1,4 +1,5 @@
 var CryptoJS = require('crypto-js');
+import {Buffer} from 'buffer';
 var crc32 = require('crc-32');
 var UINT32 = require('cuint').UINT32;
 var version = "006";
@@ -98,7 +99,7 @@ module.exports.priviledges = {
     kRtmLogin: 1000
 };
 
-var encodeHMac = async function (key, message) {
+var encodeHMac = function (key, message) {
     return CryptoJS.HmacSHA256(message, key).toString(CryptoJS.enc.Hex);
 };
 
